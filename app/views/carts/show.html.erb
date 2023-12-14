@@ -1,0 +1,24 @@
+<div class="container my-4">
+  <h2>Your Cart</h2>
+  <% if @cart_items.any? %>
+    <div class="row">
+      <% @cart_items.each do |c| %>
+        <div class="col-md-4 mb-3">
+          <div class="card" style="max-width: 300px;">
+            <%= image_tag c.product.image.url, size: "250x150", class: "card-img-top" if c.product.image.present? %>
+            <div class="card-body">
+              <h5 class="card-title">Name: <%= c.product.name %></h5>
+              <p class="card-text">Description: <%= c.product.description %></p>
+              <p class="card-text">Price: <%= c.product.price * c.product.quant %></p>
+              <p class="card-text">Quantity: <%= c.quantity %></p>
+              <%= link_to "Remove from Cart", remove_from_cart_path(product_id: c.product.id), class: "btn btn-danger my-2", method: :delete %>
+              <%= button_to "Buy now!", checkout_creat_url, params: {id: cart_url}, data: {turbo: false} %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <p>Your cart is empty.</p>
+  <% end %>
+</div>

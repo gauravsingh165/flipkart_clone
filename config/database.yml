@@ -1,0 +1,8 @@
+development:
+  database: flip_3
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  host: localhost
+  username: postgres
+  password: postgres
