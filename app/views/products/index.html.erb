@@ -1,23 +1,27 @@
-
-
-      <!-- app/views/products/index.html.erb -->
 <div class="container my-4">
   <div class="row">
     <% @products.each do |product| %>
-           <div class="col-md-4 mb-3">
-        <div class="card" style="max-width: 300px;">
-          <%= image_tag product.image.url, size: "250x150", class: "card-img-top" if product.image.present? %>
-          <div class="card-body">
+      <div class="col-md-4 mb-3">
+        <div class="card rounded-3 bg-dark" style="max-width: 300px;">
+          <%= link_to product_path(product) do %>
+            <%= image_tag product.image.url, size: "250x150", class: "card-img-top rounded-3" if product.image.present? %>
+          <% end %>
+          <div class="card-body custom-link">
             <h5 class="card-title">Name: <%= product.name %></h5>
             <p class="card-text">Description: <%= product.description %></p>
             <p class="card-text">Price: <%= product.price %></p>
             <p class="card-text">Rating: <%= product.rating %></p>
-            <%= link_to "Add to Cart", add_to_cart_path(product_id: product.id), class: "btn btn-outline-info my-2", method: :post %>
-            <%= button_to "Buy now!", checkout_creat_url, params: {id: product.id}, data: {turbo: false} %>
-
+            <%= button_to "Add to Cart", add_to_cart_path(product_id: product.id), class: "btn btn-outline-info my-2" %>
+            <%= button_to "Buy now!", checkout_creat_path, params: { id: product.id }, class: "btn btn-outline-success my-2", data: { turbo: false } %>
           </div>
         </div>
       </div>
     <% end %>
   </div>
 </div>
+<style>
+  .custom-link {
+    text-decoration: none;
+    color: red;
+  }
+</style>

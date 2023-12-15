@@ -1,6 +1,9 @@
 <%= form_for @product, html: { multipart: true } do |f| %>
   <%= f.label :image %>
   <%= f.file_field :image %><br>
-<br>
+
+  <%= f.label :category %>
+  <%= f.select :category, ['electronic', 'play', 'fashion', 'phone', 'laptop'] %><br>
+
   <%= f.submit "Create Product" %>
 <% end %>

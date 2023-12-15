@@ -9,6 +9,7 @@
             <div class="card-body">
               <h5 class="card-title">Name: <%= c.product.name %></h5>
               <p class="card-text">Description: <%= c.product.description %></p>
+              <p class="card-text">Sales Count: <%= c.product.sales_count %></p>
               <p class="card-text">Price: <%= c.product.price * c.product.quant %></p>
               <p class="card-text">Quantity: <%= c.quantity %></p>
               <%= link_to "Remove from Cart", remove_from_cart_path(product_id: c.product.id), class: "btn btn-danger my-2", method: :delete %>

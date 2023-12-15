@@ -12,8 +12,8 @@ class CheckoutController < ApplicationController
             description: product.description,
             },},
             quantity: 1,}],
-      success_url: "https://www.google.com/", 
-      cancel_url: "https://www.google.com/",  
+      success_url: "https://625b-2405-201-402e-d027-8c75-5b87-57d6-71cd.ngrok-free.app/", 
+      cancel_url: "https://625b-2405-201-402e-d027-8c75-5b87-57d6-71cd.ngrok-free.app/",  
       mode: 'payment',
     )
    redirect_to @session['url'], allow_other_host: true
